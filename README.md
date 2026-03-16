@@ -19,11 +19,26 @@ Compatibility wrappers remain at repo root (`experiment_runner.py`, `personamem_
 
 ## Quick Start
 
-1. Create and activate a virtual environment.
+This project uses `pyproject.toml` (not `requirements.txt`) for dependency management.
+
+1. Create and activate a virtual environment:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+```
+
 2. Install dependencies:
 
 ```bash
 pip install -e .
+```
+
+Optional dev extras:
+
+```bash
+pip install -e ".[dev]"
 ```
 
 3. Copy `.env.example` to `.env` and set required secrets (at minimum OpenAI key; add Neo4j values for graph mode).

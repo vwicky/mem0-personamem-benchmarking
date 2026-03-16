@@ -17,6 +17,8 @@ dependencies = [
   "pandas",
   "datasets",
   "huggingface_hub",
+  "rank-bm25",
+  "langchain-neo4j",
 ]
 
 [project.optional-dependencies]
