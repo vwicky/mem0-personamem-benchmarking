@@ -1,0 +1,21 @@
+.env
+.env.local
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.cache/
+.DS_Store
+
+# Runtime/generated artifacts
+artifacts/benchmark_logs/
+artifacts/analysis_exports/
+benchmark_logs/
+exports/
+data/inputs/
