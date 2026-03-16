@@ -123,6 +123,33 @@ python run_text_experiment.py --stage both --enable-graph --jsonl data/inputs/pe
 
 Outputs are written under `artifacts/benchmark_logs/<experiment_id>/` (or a legacy logs directory if explicitly configured).
 
+## Results and Artifacts
+
+Main benchmark results are stored per experiment in:
+
+- `artifacts/benchmark_logs/<experiment_id>/`
+
+Typical files produced:
+
+- Stage 1:
+  - `stage1_RUN-*_fill_*.json` (full stage-1 log)
+  - `stage1_RUN-*_errors_*.jsonl` (per-error lines)
+  - `flow_stage1_RUN-*.log` (step-by-step flow log)
+- Stage 2:
+  - `stage2_RUN-*_qa_*.json` (full stage-2 log)
+  - `stage2_RUN-*_qa_*_stream.jsonl` (streamed QA rows, resume-friendly)
+  - `stage2_RUN-*_qa_*_answers.json` (answers grouped by user)
+  - `flow_stage2_RUN-*.log` (step-by-step flow log)
+- Additional analysis artifacts created by notebooks/scripts:
+  - `checked_results.json`
+  - `stage2_unified_from_logs.csv`
+  - `stage2_latency_plots.png`
+  - `analysis_exports/*.csv`
+
+Cross-experiment exports from helper scripts are stored in:
+
+- `artifacts/analysis_exports/`
+
 ## Helpful Scripts
 
 - Question overlap Venn:
@@ -131,6 +158,16 @@ Outputs are written under `artifacts/benchmark_logs/<experiment_id>/` (or a lega
   - `python scripts/plot_stage2_latency.py`
 - Multimodal image inspection:
   - `python scripts/view_multimodal_images.py --show 1`
+
+## Evaluation Notebook
+
+LLM-as-a-judge evaluation notebook:
+
+- `notebooks/llm_as_a_judge.ipynb`
+
+It typically reads a Stage 2 QA log from `artifacts/benchmark_logs/<experiment_id>/` and writes judged outputs such as:
+
+- `artifacts/benchmark_logs/<experiment_id>/checked_results.json`
 
 ## Notes
 
